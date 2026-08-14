@@ -5,13 +5,23 @@ public class Reservation {
     private int reservationID;
     private Member member;
     private Movie movie;
-    private String seat;
 
-    public Reservation(int reservationID, Member member, Movie movie, String seat) {
+    public Reservation(int reservationID, Member member, Movie movie) {
 
         this.reservationID = reservationID;
         this.member = member;
         this.movie = movie;
-        this.seat = seat;
+    }
+
+    public int getReservationID() {
+        return reservationID;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public Movie getMovie() {
+        return movie;
     }
 }
