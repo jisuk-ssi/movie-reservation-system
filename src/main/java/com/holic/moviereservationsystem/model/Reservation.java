@@ -6,9 +6,8 @@ public class Reservation {
     private Member member;
     private Movie movie;
 
-    public Reservation(int reservationID, Member member, Movie movie) {
+    public Reservation(Member member, Movie movie) {
 
-        this.reservationID = reservationID;
         this.member = member;
         this.movie = movie;
     }
@@ -16,6 +15,8 @@ public class Reservation {
     public int getReservationID() {
         return reservationID;
     }
+
+    public void setReservationID(int reservationID) {}
 
     public Member getMember() {
         return member;
