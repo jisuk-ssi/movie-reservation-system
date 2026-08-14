@@ -7,9 +7,8 @@ public class Movie {
     private Genre genre;
     private int runningTime;
 
-    public Movie(int movieID, String movieName, Genre genre, int runningTime) {
+    public Movie(String movieName, Genre genre, int runningTime) {
 
-        this.movieID = movieID;
         this.movieName = movieName;
         this.genre = genre;
         this.runningTime = runningTime;
@@ -17,6 +16,10 @@ public class Movie {
 
     public int getMovieID() {
         return movieID;
+    }
+
+    public void setMovieID(int movieID) {
+        this.movieID = movieID;
     }
 
     public String getMovieName() {

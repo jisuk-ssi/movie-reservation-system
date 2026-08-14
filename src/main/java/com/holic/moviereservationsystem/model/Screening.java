@@ -10,9 +10,8 @@ public class Screening {
     private String theater;
     private int remainingSeats;
 
-    public Screening(int screeningId, Movie movie, LocalDateTime startTime, String theater, int remainingSeats) {
+    public Screening(Movie movie, LocalDateTime startTime, String theater, int remainingSeats) {
 
-        this.screeningId = screeningId;
         this.movie = movie;
         this.startTime = startTime;
         this.theater = theater;
@@ -22,6 +21,8 @@ public class Screening {
     public int getScreeningId() {
         return screeningId;
     }
+
+    public void setScreeningId(int screeningId) {}
 
     public Movie getMovie() {
         return movie;

@@ -6,9 +6,8 @@ public class Member {
     private String memberName;
     private String phoneNumber;
 
-    public Member(int memberID, String memberName, String phoneNumber) {
+    public Member(String memberName, String phoneNumber) {
 
-        this.memberID = memberID;
         this.memberName = memberName;
         this.phoneNumber = phoneNumber;
     }
@@ -16,6 +15,8 @@ public class Member {
     public int getMemberID() {
         return memberID;
     }
+
+    public void setMemberID(int memberID) {}
 
     public String getMemberName() {
         return memberName;
