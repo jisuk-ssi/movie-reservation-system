@@ -12,4 +12,16 @@ public class Member {
         this.memberName = memberName;
         this.phoneNumber = phoneNumber;
     }
+
+    public int getMemberID() {
+        return memberID;
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 }

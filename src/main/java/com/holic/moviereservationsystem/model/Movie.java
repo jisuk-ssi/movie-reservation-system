@@ -14,4 +14,20 @@ public class Movie {
         this.genre = genre;
         this.runningTime = runningTime;
     }
+
+    public int getMovieID() {
+        return movieID;
+    }
+
+    public String getMovieName() {
+        return movieName;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public int getRunningTime() {
+        return runningTime;
+    }
 }
