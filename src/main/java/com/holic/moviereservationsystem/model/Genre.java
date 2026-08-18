@@ -19,6 +19,7 @@ public enum Genre {
     }
 
 
+    //장르명 한글로 getter
     public String getKorean() {
         return korean;
     }

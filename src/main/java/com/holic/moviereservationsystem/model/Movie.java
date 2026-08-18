@@ -14,12 +14,25 @@ public class Movie {
         this.runningTime = runningTime;
     }
 
-    public int getMovieID() {
-        return movieID;
-    }
-
+    //setter 및 getter
     public void setMovieID(int movieID) {
         this.movieID = movieID;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public void setRunningTime(int runningTime) {
+        this.runningTime = runningTime;
+    }
+
+    public int getMovieID() {
+        return movieID;
     }
 
     public String getMovieName() {
@@ -32,5 +45,15 @@ public class Movie {
 
     public int getRunningTime() {
         return runningTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie[" +
+                "movieID=" + movieID +
+                ", movieName='" + movieName + '\'' +
+                ", genre=" + genre +
+                ", runningTime=" + runningTime +
+                ']';
     }
 }

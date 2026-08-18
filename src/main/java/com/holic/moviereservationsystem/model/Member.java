@@ -12,11 +12,20 @@ public class Member {
         this.phoneNumber = phoneNumber;
     }
 
+    //setter 및 getter
+    public void setMemberID(int memberID) {}
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public int getMemberID() {
         return memberID;
     }
-
-    public void setMemberID(int memberID) {}
 
     public String getMemberName() {
         return memberName;
@@ -24,5 +33,14 @@ public class Member {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "memberID=" + memberID +
+                ", memberName='" + memberName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }
