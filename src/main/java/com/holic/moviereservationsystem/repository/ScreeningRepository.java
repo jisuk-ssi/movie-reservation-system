@@ -46,6 +46,12 @@ public class ScreeningRepository {
         return screeningList;
     }
 
+    // 해당 영화를 참조하는 상영정보가 존재하는지 확인
+    public boolean existsByMovieId(int movieId) {
+        return screeningList.stream()
+                .anyMatch(screening -> screening.getMovie().getMovieId() == movieId);
+    }
+
     // ID로 상영 정보 삭제
     public boolean deleteById(int id) {
         return screeningList.removeIf(screening -> screening.getScreeningId() == id);

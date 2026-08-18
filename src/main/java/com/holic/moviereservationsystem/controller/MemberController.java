@@ -2,17 +2,21 @@ package com.holic.moviereservationsystem.controller;
 
 import com.holic.moviereservationsystem.model.Member;
 import com.holic.moviereservationsystem.repository.MemberRepository;
+import com.holic.moviereservationsystem.repository.ReservationRepository;
 import com.holic.moviereservationsystem.view.MemberView;
 
 public class MemberController {
 
     private final MemberRepository memberRepository;
+    private final ReservationRepository reservationRepository;
     private final MemberView memberView;
 
     public MemberController(MemberRepository memberRepository,
+                            ReservationRepository reservationRepository,
                             MemberView memberView) {
 
         this.memberRepository = memberRepository;
+        this.reservationRepository = reservationRepository;
         this.memberView = memberView;
     }
 
@@ -126,6 +130,17 @@ public class MemberController {
 
         int memberId =
                 memberView.readInt("삭제할 회원 번호: ");
+
+        if (memberRepository.findById(memberId) == null) {
+            memberView.displayError("해당 회원이 존재하지 않습니다.");
+            return;
+        }
+
+        // 예매가 참조하는 회원을 삭제하면 고아 예매가 생기므로 삭제를 차단한다.
+        if (reservationRepository.existsByMemberId(memberId)) {
+            memberView.displayError("예매 내역이 있는 회원은 삭제할 수 없습니다.");
+            return;
+        }
 
         boolean deleted =
                 memberRepository.deleteById(memberId);

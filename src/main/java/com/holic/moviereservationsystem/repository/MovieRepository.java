@@ -5,6 +5,7 @@ import com.holic.moviereservationsystem.model.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MovieRepository {
 
@@ -44,6 +45,24 @@ public class MovieRepository {
     // 모든 영화 조회
     public List<Movie> findAll() {
         return movieList;
+    }
+
+    // 제목에 검색어가 포함된 영화 조회
+    public List<Movie> searchByName(String keyword) {
+        String lowerKeyword = keyword.toLowerCase();
+
+        return movieList.stream()
+                .filter(movie -> movie.getMovieName()
+                        .toLowerCase()
+                        .contains(lowerKeyword))
+                .collect(Collectors.toList());
+    }
+
+    // 장르별 영화 조회
+    public List<Movie> findByGenre(Genre genre) {
+        return movieList.stream()
+                .filter(movie -> movie.getGenre() == genre)
+                .collect(Collectors.toList());
     }
 
     // ID로 영화 삭제
