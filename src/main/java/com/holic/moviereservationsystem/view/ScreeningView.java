@@ -15,8 +15,8 @@ public class ScreeningView {
         this.scanner = scanner;
     }
 
-    // 상영정보 관리 메뉴 출력
-    public void displayScreeningMenu() {
+    // 상영정보 관리 메뉴 출력 및 선택값 입력
+    public int selectScreeningMenu() {
         System.out.println();
         System.out.println("===== 상영정보 관리 =====");
         System.out.println("1. 상영정보 등록");
@@ -25,11 +25,8 @@ public class ScreeningView {
         System.out.println("4. 상영정보 수정");
         System.out.println("5. 상영정보 삭제");
         System.out.println("9. 이전 메뉴");
-    }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
+        return readInt("메뉴 선택: ");
     }
 
     // 오류 메시지 출력
@@ -122,10 +119,5 @@ public class ScreeningView {
                 displayError("날짜와 시간을 올바른 형식으로 입력해주세요.");
             }
         }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

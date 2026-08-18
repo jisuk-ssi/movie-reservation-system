@@ -30,9 +30,7 @@ public class ReservationController {
 
         while (true) {
 
-            reservationView.displayReservationMenu();
-
-            int choice = reservationView.readInt("메뉴 선택: ");
+            int choice = reservationView.selectReservationMenu();
 
             switch (choice) {
 

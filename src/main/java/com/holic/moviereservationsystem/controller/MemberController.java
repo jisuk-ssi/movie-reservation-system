@@ -20,9 +20,7 @@ public class MemberController {
 
         while (true) {
 
-            memberView.displayMemberMenu();
-
-            int choice = memberView.readInt("메뉴 선택: ");
+            int choice = memberView.selectMemberMenu();
 
             switch (choice) {
 
@@ -56,7 +54,7 @@ public class MemberController {
     }
 
     // 회원 등록
-    private void registerMember() {
+    public void registerMember() {
 
         String memberName =
                 memberView.readLine("회원 이름: ");
@@ -73,7 +71,7 @@ public class MemberController {
     }
 
     // 회원 전체 조회
-    private void findAllMembers() {
+    public void findAllMembers() {
 
         memberView.displayMemberList(
                 memberRepository.findAll()
@@ -81,7 +79,7 @@ public class MemberController {
     }
 
     // 회원 번호로 조회
-    private void findMemberById() {
+    public void findMemberById() {
 
         int memberId =
                 memberView.readInt("회원 번호: ");

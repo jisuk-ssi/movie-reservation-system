@@ -1,5 +1,6 @@
 package com.holic.moviereservationsystem.repository;
 
+import com.holic.moviereservationsystem.model.Genre;
 import com.holic.moviereservationsystem.model.Movie;
 
 import java.util.ArrayList;
@@ -7,15 +8,26 @@ import java.util.List;
 
 public class MovieRepository {
 
-    private List<Movie> movieList = new ArrayList<>();
+    private final List<Movie> movieList = new ArrayList<>();
     private int sequence = 1;
 
+    public MovieRepository() {
+        initializeMovies();
+    }
+
+    private void initializeMovies() {
+        save(new Movie("범죄도시", Genre.ACTION, 121));
+        save(new Movie("극한직업", Genre.COMEDY, 111));
+        save(new Movie("어바웃 타임", Genre.ROMANCE, 123));
+        save(new Movie("기생충", Genre.THRILLER, 131));
+        save(new Movie("인터스텔라", Genre.SF, 169));
+        save(new Movie("센과 치히로의 행방불명", Genre.ANIMATION, 126));
+    }
+
     // 영화 저장
-    public Movie save(Movie movie) {
+    public void save(Movie movie) {
         movie.setMovieId(sequence++);
         movieList.add(movie);
-
-        return movie;
     }
 
     // ID로 영화 조회

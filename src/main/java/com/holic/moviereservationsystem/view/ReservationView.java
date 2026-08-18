@@ -13,8 +13,8 @@ public class ReservationView {
         this.scanner = scanner;
     }
 
-    // 예매 관리 메뉴 출력
-    public void displayReservationMenu() {
+    // 예매 관리 메뉴 출력 및 선택값 입력
+    public int selectReservationMenu() {
         System.out.println();
         System.out.println("===== 예매 관리 =====");
         System.out.println("1. 예매 등록");
@@ -23,11 +23,8 @@ public class ReservationView {
         System.out.println("4. 예매 수정");
         System.out.println("5. 예매 삭제");
         System.out.println("9. 이전 메뉴");
-    }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
+        return readInt("메뉴 선택: ");
     }
 
     // 오류 메시지 출력
@@ -93,25 +90,5 @@ public class ReservationView {
                 displayError("숫자를 입력해주세요.");
             }
         }
-    }
-
-    // 문자열 입력
-    public String readLine(String prompt) {
-
-        while (true) {
-            System.out.print(prompt);
-            String input = scanner.nextLine().trim();
-
-            if (!input.isEmpty()) {
-                return input;
-            }
-
-            displayError("한 글자 이상 입력해주세요.");
-        }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

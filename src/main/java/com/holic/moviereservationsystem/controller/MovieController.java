@@ -20,9 +20,7 @@ public class MovieController {
 
         while (true) {
 
-            movieView.displayMovieMenu();
-
-            int choice = movieView.readInt("메뉴 선택: ");
+            int choice = movieView.selectMovieMenu();
 
             switch (choice) {
 

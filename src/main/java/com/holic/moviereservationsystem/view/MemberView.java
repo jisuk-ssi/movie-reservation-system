@@ -13,8 +13,8 @@ public class MemberView {
         this.scanner = scanner;
     }
 
-    // 회원 관리 메뉴 출력
-    public void displayMemberMenu() {
+    // 회원 관리 메뉴 출력 및 선택값 입력
+    public int selectMemberMenu() {
         System.out.println();
         System.out.println("===== 회원 관리 =====");
         System.out.println("1. 회원 등록");
@@ -23,11 +23,8 @@ public class MemberView {
         System.out.println("4. 회원 수정");
         System.out.println("5. 회원 삭제");
         System.out.println("9. 이전 메뉴");
-    }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
+        return readInt("메뉴 선택: ");
     }
 
     // 오류 메시지 출력
@@ -101,10 +98,5 @@ public class MemberView {
 
             displayError("한 글자 이상 입력해주세요.");
         }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

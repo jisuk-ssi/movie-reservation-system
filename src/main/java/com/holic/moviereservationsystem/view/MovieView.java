@@ -14,8 +14,8 @@ public class MovieView {
         this.scanner = scanner;
     }
 
-    // 영화 관리 메뉴 출력
-    public void displayMovieMenu() {
+    // 영화 관리 메뉴 출력 및 선택값 입력
+    public int selectMovieMenu() {
         System.out.println();
         System.out.println("===== 영화 관리 =====");
         System.out.println("1. 영화 등록");
@@ -24,11 +24,8 @@ public class MovieView {
         System.out.println("4. 영화 수정");
         System.out.println("5. 영화 삭제");
         System.out.println("9. 이전 메뉴");
-    }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
+        return readInt("메뉴 선택: ");
     }
 
     // 오류 메시지 출력
@@ -129,10 +126,5 @@ public class MovieView {
 
             displayError("올바른 장르 번호를 선택해주세요.");
         }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

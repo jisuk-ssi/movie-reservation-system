@@ -7,15 +7,25 @@ import java.util.List;
 
 public class MemberRepository {
 
-    private List<Member> memberList = new ArrayList<>();
+    private final List<Member> memberList = new ArrayList<>();
     private int sequence = 1;
 
+    public MemberRepository() {
+        initializeMembers();
+    }
+
+    private void initializeMembers() {
+        save(new Member("김민준", "010-1234-5678"));
+        save(new Member("이서연", "010-2345-6789"));
+        save(new Member("박지훈", "010-3456-7890"));
+        save(new Member("최유진", "010-4567-8901"));
+        save(new Member("정현우", "010-5678-9012"));
+    }
+
     // 회원 저장
-    public Member save(Member member) {
+    public void save(Member member) {
         member.setMemberId(sequence++);
         memberList.add(member);
-
-        return member;
     }
 
     // ID로 회원 조회

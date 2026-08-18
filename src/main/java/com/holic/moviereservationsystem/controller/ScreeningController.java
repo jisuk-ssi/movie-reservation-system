@@ -27,9 +27,7 @@ public class ScreeningController {
 
         while (true) {
 
-            screeningView.displayScreeningMenu();
-
-            int choice = screeningView.readInt("메뉴 선택: ");
+            int choice = screeningView.selectScreeningMenu();
 
             switch (choice) {
 
