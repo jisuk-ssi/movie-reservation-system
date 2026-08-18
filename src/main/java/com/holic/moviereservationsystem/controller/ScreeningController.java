@@ -3,6 +3,7 @@ package com.holic.moviereservationsystem.controller;
 import com.holic.moviereservationsystem.model.Movie;
 import com.holic.moviereservationsystem.model.Screening;
 import com.holic.moviereservationsystem.repository.MovieRepository;
+import com.holic.moviereservationsystem.repository.ReservationRepository;
 import com.holic.moviereservationsystem.repository.ScreeningRepository;
 import com.holic.moviereservationsystem.view.ScreeningView;
 
@@ -12,14 +13,17 @@ public class ScreeningController {
 
     private final ScreeningRepository screeningRepository;
     private final MovieRepository movieRepository;
+    private final ReservationRepository reservationRepository;
     private final ScreeningView screeningView;
 
     public ScreeningController(ScreeningRepository screeningRepository,
                                MovieRepository movieRepository,
+                               ReservationRepository reservationRepository,
                                ScreeningView screeningView) {
 
         this.screeningRepository = screeningRepository;
         this.movieRepository = movieRepository;
+        this.reservationRepository = reservationRepository;
         this.screeningView = screeningView;
     }
 
@@ -222,6 +226,21 @@ public class ScreeningController {
                 screeningView.readInt(
                         "삭제할 상영 번호: "
                 );
+
+        if (screeningRepository.findById(screeningId) == null) {
+            screeningView.displayError(
+                    "해당 상영정보가 존재하지 않습니다."
+            );
+            return;
+        }
+
+        // 예매가 참조하는 상영정보를 삭제하면 고아 예매가 생기므로 삭제를 차단한다.
+        if (reservationRepository.existsByScreeningId(screeningId)) {
+            screeningView.displayError(
+                    "예매 내역이 있는 상영정보는 삭제할 수 없습니다."
+            );
+            return;
+        }
 
         boolean deleted =
                 screeningRepository.deleteById(screeningId);

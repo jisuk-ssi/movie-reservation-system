@@ -3,16 +3,20 @@ package com.holic.moviereservationsystem.controller;
 import com.holic.moviereservationsystem.model.Genre;
 import com.holic.moviereservationsystem.model.Movie;
 import com.holic.moviereservationsystem.repository.MovieRepository;
+import com.holic.moviereservationsystem.repository.ScreeningRepository;
 import com.holic.moviereservationsystem.view.MovieView;
 
 public class MovieController {
 
     private final MovieRepository movieRepository;
+    private final ScreeningRepository screeningRepository;
     private final MovieView movieView;
 
     public MovieController(MovieRepository movieRepository,
+                           ScreeningRepository screeningRepository,
                            MovieView movieView) {
         this.movieRepository = movieRepository;
+        this.screeningRepository = screeningRepository;
         this.movieView = movieView;
     }
 
@@ -42,6 +46,14 @@ public class MovieController {
 
                 case 5:
                     deleteMovie();
+                    break;
+
+                case 6:
+                    searchMoviesByName();
+                    break;
+
+                case 7:
+                    findMoviesByGenre();
                     break;
 
                 case 9:
@@ -78,6 +90,28 @@ public class MovieController {
 
         movieView.displayMovieList(
                 movieRepository.findAll()
+        );
+    }
+
+    // 영화 제목 검색
+    private void searchMoviesByName() {
+
+        String keyword =
+                movieView.readLine("검색할 영화 제목: ");
+
+        movieView.displayMovieList(
+                movieRepository.searchByName(keyword)
+        );
+    }
+
+    // 장르별 영화 조회
+    private void findMoviesByGenre() {
+
+        Genre genre =
+                movieView.readGenre("조회할 장르를 선택해주세요.");
+
+        movieView.displayMovieList(
+                movieRepository.findByGenre(genre)
         );
     }
 
@@ -133,6 +167,17 @@ public class MovieController {
 
         int movieId =
                 movieView.readInt("삭제할 영화 번호: ");
+
+        if (movieRepository.findById(movieId) == null) {
+            movieView.displayError("해당 영화가 존재하지 않습니다.");
+            return;
+        }
+
+        // 상영정보가 참조하는 영화를 삭제하면 고아 상영정보가 생기므로 삭제를 차단한다.
+        if (screeningRepository.existsByMovieId(movieId)) {
+            movieView.displayError("상영정보가 있는 영화는 삭제할 수 없습니다.");
+            return;
+        }
 
         boolean deleted =
                 movieRepository.deleteById(movieId);

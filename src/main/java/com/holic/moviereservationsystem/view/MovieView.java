@@ -23,6 +23,8 @@ public class MovieView {
         System.out.println("3. 영화 번호로 조회");
         System.out.println("4. 영화 수정");
         System.out.println("5. 영화 삭제");
+        System.out.println("6. 영화 제목 검색");
+        System.out.println("7. 장르별 영화 조회");
         System.out.println("9. 이전 메뉴");
 
         return readInt("메뉴 선택: ");

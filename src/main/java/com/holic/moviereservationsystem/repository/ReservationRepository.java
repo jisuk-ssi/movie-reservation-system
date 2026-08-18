@@ -53,6 +53,19 @@ public class ReservationRepository {
         return reservationList;
     }
 
+    // 해당 회원을 참조하는 예매가 존재하는지 확인
+    public boolean existsByMemberId(int memberId) {
+        return reservationList.stream()
+                .anyMatch(reservation -> reservation.getMember().getMemberId() == memberId);
+    }
+
+    // 해당 상영정보를 참조하는 예매가 존재하는지 확인
+    public boolean existsByScreeningId(int screeningId) {
+        return reservationList.stream()
+                .anyMatch(reservation ->
+                        reservation.getScreening().getScreeningId() == screeningId);
+    }
+
     // ID로 예매 삭제
     public boolean deleteById(int id) {
         return reservationList.removeIf(

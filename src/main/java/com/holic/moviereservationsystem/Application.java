@@ -18,25 +18,34 @@ import java.util.Scanner;
 public class Application {
 
     public static void main(String[] args) {
+
+        //공유될 scanner 인스턴스 생성
         Scanner scanner = new Scanner(System.in);
 
+        //프로그램 전체에서 사용할 repository 생성
         MemberRepository memberRepository = new MemberRepository();
         MovieRepository movieRepository = new MovieRepository();
         ScreeningRepository screeningRepository = new ScreeningRepository(movieRepository);
-        ReservationRepository reservationRepository =
-                new ReservationRepository(memberRepository, screeningRepository);
+        ReservationRepository reservationRepository = new ReservationRepository(memberRepository, screeningRepository);
 
+        //프로그램 내에서 보여질 view menu 생성 (scanner 공유)
         MemberView memberView = new MemberView(scanner);
         MovieView movieView = new MovieView(scanner);
         ScreeningView screeningView = new ScreeningView(scanner);
         ReservationView reservationView = new ReservationView(scanner);
 
+        //내부에서 작동하는 controller 생성
         MemberController memberController =
-                new MemberController(memberRepository, memberView);
+                new MemberController(memberRepository, reservationRepository, memberView);
         MovieController movieController =
-                new MovieController(movieRepository, movieView);
+                new MovieController(movieRepository, screeningRepository, movieView);
         ScreeningController screeningController =
-                new ScreeningController(screeningRepository, movieRepository, screeningView);
+                new ScreeningController(
+                        screeningRepository,
+                        movieRepository,
+                        reservationRepository,
+                        screeningView
+                );
         ReservationController reservationController =
                 new ReservationController(
                         reservationRepository,
@@ -47,6 +56,7 @@ public class Application {
 
         System.out.println("영화 예매 시스템을 시작합니다.");
 
+        //main menu
         while (true) {
             System.out.println();
             System.out.println("========== 영화 예매 시스템 ==========");
