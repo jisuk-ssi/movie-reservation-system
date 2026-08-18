@@ -1,24 +1,28 @@
 package com.holic.moviereservationsystem;
 
 import com.holic.moviereservationsystem.model.*;
+import com.holic.moviereservationsystem.view.MemberView;
+import com.holic.moviereservationsystem.view.MovieView;
+import com.holic.moviereservationsystem.view.ReservationView;
+import com.holic.moviereservationsystem.view.ScreeningView;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        System.out.println("This is a movie reservation system!");
+        Scanner scanner = new Scanner(System.in);
 
-//        Movie movie = new Movie(1, "인셉션", Genre.SF, 148);
-//
-//        Member member = new Member(1, "홍길동", "010-1234-5678");
-//
-//        Screening screening = new Screening(1, movie,
-//                LocalDateTime.of(2026, 8, 15, 19, 30),
-//                "1관", 100);
-//
-//        Reservation reservation = new Reservation(1, member, movie);
+        MovieView movieView = new MovieView(scanner);
+        MemberView memberView = new MemberView(scanner);
+        ScreeningView screeningView = new ScreeningView(scanner);
+        ReservationView reservationView = new ReservationView(scanner);
+
+        // 프로그램 실행...
+
+        scanner.close();
 
     }
 }
