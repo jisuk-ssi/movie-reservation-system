@@ -45,7 +45,7 @@ public class MemberView {
 
         System.out.println();
         System.out.println("---------- 회원 상세 정보 ----------");
-        System.out.println("회원 번호 : " + member.getMemberID());
+        System.out.println("회원 번호 : " + member.getMemberId());
         System.out.println("회원 이름 : " + member.getMemberName());
         System.out.println("전화번호  : " + member.getPhoneNumber());
     }
@@ -63,7 +63,7 @@ public class MemberView {
 
         for (Member member : members) {
             System.out.println(
-                    member.getMemberID() + " | "
+                    member.getMemberId() + " | "
                             + member.getMemberName() + " | "
                             + member.getPhoneNumber()
             );

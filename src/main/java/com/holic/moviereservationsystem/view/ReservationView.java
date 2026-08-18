@@ -45,11 +45,11 @@ public class ReservationView {
 
         System.out.println();
         System.out.println("---------- 예매 상세 정보 ----------");
-        System.out.println("예매 번호 : " + reservation.getReservationID());
-        System.out.println("회원 번호 : " + reservation.getMember().getMemberID());
+        System.out.println("예매 번호 : " + reservation.getReservationId());
+        System.out.println("회원 번호 : " + reservation.getMember().getMemberId());
         System.out.println("회원 이름 : " + reservation.getMember().getMemberName());
         System.out.println("상영 번호 : " + reservation.getScreening().getScreeningId());
-        System.out.println("영화 번호 : " + reservation.getScreening().getMovie().getMovieID());
+        System.out.println("영화 번호 : " + reservation.getScreening().getMovie().getMovieId());
         System.out.println("영화 제목 : " + reservation.getScreening().getMovie().getMovieName());
         System.out.println("상영 시간 : " + reservation.getScreening().getStartTime());
         System.out.println("상영관    : " + reservation.getScreening().getTheater());
@@ -68,7 +68,7 @@ public class ReservationView {
 
         for (Reservation reservation : reservations) {
             System.out.println(
-                    reservation.getReservationID() + " | "
+                    reservation.getReservationId() + " | "
                             + reservation.getMember().getMemberName() + " | "
                             + reservation.getScreening().getMovie().getMovieName() + " | "
                             + reservation.getScreening().getStartTime() + " | "

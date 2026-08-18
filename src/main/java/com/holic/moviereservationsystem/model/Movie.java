@@ -31,7 +31,7 @@ public class Movie {
         this.runningTime = runningTime;
     }
 
-    public int getMovieID() {
+    public int getMovieId() {
         return movieId;
     }
 

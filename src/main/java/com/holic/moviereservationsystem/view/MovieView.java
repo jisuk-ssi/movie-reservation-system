@@ -46,7 +46,7 @@ public class MovieView {
 
         System.out.println();
         System.out.println("---------- 영화 상세 정보 ----------");
-        System.out.println("영화 번호 : " + movie.getMovieID());
+        System.out.println("영화 번호 : " + movie.getMovieId());
         System.out.println("영화 제목 : " + movie.getMovieName());
         System.out.println("장르      : " + movie.getGenre().getKorean());
         System.out.println("상영 시간 : " + movie.getRunningTime() + "분");
@@ -65,7 +65,7 @@ public class MovieView {
 
         for (Movie movie : movies) {
             System.out.println(
-                    movie.getMovieID() + " | "
+                    movie.getMovieId() + " | "
                             + movie.getMovieName() + " | "
                             + movie.getGenre().getKorean() + " | "
                             + movie.getRunningTime() + "분"
