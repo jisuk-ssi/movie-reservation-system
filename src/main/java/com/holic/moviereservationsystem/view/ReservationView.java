@@ -13,8 +13,8 @@ public class ReservationView {
         this.scanner = scanner;
     }
 
-    // 예매 관리 메뉴 출력
-    public void displayReservationMenu() {
+    // 예매 관리 메뉴 출력 및 선택값 입력
+    public int selectReservationMenu() {
         System.out.println();
         System.out.println("===== 예매 관리 =====");
         System.out.println("1. 예매 등록");
@@ -23,6 +23,8 @@ public class ReservationView {
         System.out.println("4. 예매 수정");
         System.out.println("5. 예매 삭제");
         System.out.println("9. 이전 메뉴");
+
+        return readInt("메뉴 선택: ");
     }
 
     // 일반 메시지 출력
