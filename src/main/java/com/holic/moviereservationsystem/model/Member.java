@@ -2,7 +2,7 @@ package com.holic.moviereservationsystem.model;
 
 public class Member {
 
-    private int memberID;
+    private int memberId;
     private String memberName;
     private String phoneNumber;
 
@@ -13,7 +13,9 @@ public class Member {
     }
 
     //setter 및 getter
-    public void setMemberID(int memberID) {}
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
 
     public void setMemberName(String memberName) {
         this.memberName = memberName;
@@ -23,8 +25,8 @@ public class Member {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getMemberID() {
-        return memberID;
+    public int getMemberId() {
+        return memberId;
     }
 
     public String getMemberName() {
@@ -37,10 +39,10 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Member{" +
-                "memberID=" + memberID +
+        return "Member[" +
+                "memberID=" + memberId +
                 ", memberName='" + memberName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+                ']';
     }
 }

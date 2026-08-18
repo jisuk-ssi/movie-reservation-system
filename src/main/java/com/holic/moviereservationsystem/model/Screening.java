@@ -20,7 +20,9 @@ public class Screening {
 
     //setter 및 getter
 
-    public void setScreeningId(int screeningId) {}
+    public void setScreeningId(int screeningId) {
+        this.screeningId = screeningId;
+    }
 
     public void setMovie(Movie movie) {
         this.movie = movie;
@@ -60,10 +62,10 @@ public class Screening {
 
     @Override
     public String toString() {
-        return "Screen [screeningId=" + screeningId +
+        return "Screening [screeningId=" + screeningId +
                 ", movie=" + movie.getMovieName() +
                 ", start time=" + startTime +
-                ", theater"  + theater +
+                ", theater="  + theater +
                 ", remainingSeats=" + remainingSeats + "]";
     }
 }

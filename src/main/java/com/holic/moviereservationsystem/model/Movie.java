@@ -2,7 +2,7 @@ package com.holic.moviereservationsystem.model;
 
 public class Movie {
 
-    private int movieID;
+    private int movieId;
     private String movieName;
     private Genre genre;
     private int runningTime;
@@ -15,8 +15,8 @@ public class Movie {
     }
 
     //setter 및 getter
-    public void setMovieID(int movieID) {
-        this.movieID = movieID;
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 
     public void setMovieName(String movieName) {
@@ -31,8 +31,8 @@ public class Movie {
         this.runningTime = runningTime;
     }
 
-    public int getMovieID() {
-        return movieID;
+    public int getMovieId() {
+        return movieId;
     }
 
     public String getMovieName() {
@@ -50,7 +50,7 @@ public class Movie {
     @Override
     public String toString() {
         return "Movie[" +
-                "movieID=" + movieID +
+                "movieId=" + movieId +
                 ", movieName='" + movieName + '\'' +
                 ", genre=" + genre +
                 ", runningTime=" + runningTime +

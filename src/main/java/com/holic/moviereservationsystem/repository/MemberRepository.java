@@ -12,7 +12,7 @@ public class MemberRepository {
 
     // 회원 저장
     public Member save(Member member) {
-        member.setMemberID(sequence++);
+        member.setMemberId(sequence++);
         memberList.add(member);
 
         return member;
@@ -21,7 +21,7 @@ public class MemberRepository {
     // ID로 회원 조회
     public Member findById(int id) {
         for (Member member : memberList) {
-            if (member.getMemberID() == id) {
+            if (member.getMemberId() == id) {
                 return member;
             }
         }
@@ -36,6 +36,6 @@ public class MemberRepository {
 
     // ID로 회원 삭제
     public boolean deleteById(int id) {
-        return memberList.removeIf(member -> member.getMemberID() == id);
+        return memberList.removeIf(member -> member.getMemberId() == id);
     }
 }

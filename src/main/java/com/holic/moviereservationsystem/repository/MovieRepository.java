@@ -12,7 +12,7 @@ public class MovieRepository {
 
     // 영화 저장
     public Movie save(Movie movie) {
-        movie.setMovieID(sequence++);
+        movie.setMovieId(sequence++);
         movieList.add(movie);
 
         return movie;
@@ -21,7 +21,7 @@ public class MovieRepository {
     // ID로 영화 조회
     public Movie findById(int id) {
         for (Movie movie : movieList) {
-            if (movie.getMovieID() == id) {
+            if (movie.getMovieId() == id) {
                 return movie;
             }
         }
@@ -36,6 +36,6 @@ public class MovieRepository {
 
     // ID로 영화 삭제
     public boolean deleteById(int id) {
-        return movieList.removeIf(movie -> movie.getMovieID() == id);
+        return movieList.removeIf(movie -> movie.getMovieId() == id);
     }
 }
