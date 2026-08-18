@@ -11,7 +11,7 @@ public class ReservationRepository {
 
     // 예매 저장
     public Reservation save(Reservation reservation) {
-        reservation.setReservationID(sequence++);
+        reservation.setReservationId(sequence++);
         reservationList.add(reservation);
 
         return reservation;
@@ -20,7 +20,7 @@ public class ReservationRepository {
     // ID로 예매 조회
     public Reservation findById(int id) {
         for (Reservation reservation : reservationList) {
-            if (reservation.getReservationID() == id) {
+            if (reservation.getReservationId() == id) {
                 return reservation;
             }
         }
@@ -36,7 +36,7 @@ public class ReservationRepository {
     // ID로 예매 삭제
     public boolean deleteById(int id) {
         return reservationList.removeIf(
-                reservation -> reservation.getReservationID() == id
+                reservation -> reservation.getReservationId() == id
         );
     }
 }

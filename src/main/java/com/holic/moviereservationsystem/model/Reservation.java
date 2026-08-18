@@ -2,44 +2,46 @@ package com.holic.moviereservationsystem.model;
 
 public class Reservation {
 
-    private int reservationID;
+    private int reservationId;
     private Member member;
-    private Movie movie;
+    private Screening screening;
 
-    public Reservation(Member member, Movie movie) {
+    public Reservation(Member member, Screening screening) {
 
         this.member = member;
-        this.movie = movie;
+        this.screening = screening;
     }
 
     //setter 및 getter
-    public void setReservationID(int reservationID) {}
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
 
     public void setMember(Member member) {
         this.member = member;
     }
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
+    public void setScreening(Screening screening) {
+        this.screening = screening;
     }
 
-    public int getReservationID() {
-        return reservationID;
+    public int getReservationId() {
+        return reservationId;
     }
 
     public Member getMember() {
         return member;
     }
 
-    public Movie getMovie() {
-        return movie;
+    public Screening getScreening() {
+        return screening;
     }
 
     @Override
     public String toString() {
-        return "Reservation [reservationID=" + reservationID +
+        return "Reservation [reservationId=" + reservationId +
                 ", member=" + member +
-                ", movie='" + movie.getMovieName() + '\'' +
+                ", screening=" + screening +
                 "]";
     }
 }

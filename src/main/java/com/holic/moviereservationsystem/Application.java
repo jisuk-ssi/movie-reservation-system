@@ -1,6 +1,10 @@
 package com.holic.moviereservationsystem;
 
 import com.holic.moviereservationsystem.model.*;
+import com.holic.moviereservationsystem.repository.MemberRepository;
+import com.holic.moviereservationsystem.repository.MovieRepository;
+import com.holic.moviereservationsystem.repository.ReservationRepository;
+import com.holic.moviereservationsystem.repository.ScreeningRepository;
 import com.holic.moviereservationsystem.view.MemberView;
 import com.holic.moviereservationsystem.view.MovieView;
 import com.holic.moviereservationsystem.view.ReservationView;
@@ -15,10 +19,17 @@ public class Application {
 
         Scanner scanner = new Scanner(System.in);
 
+        // View
         MovieView movieView = new MovieView(scanner);
         MemberView memberView = new MemberView(scanner);
         ScreeningView screeningView = new ScreeningView(scanner);
         ReservationView reservationView = new ReservationView(scanner);
+
+        //Repository
+        MovieRepository movieRepository = new MovieRepository();
+        MemberRepository memberRepository = new MemberRepository();
+        ScreeningRepository screeningRepository = new ScreeningRepository();
+        ReservationRepository reservationRepository = new ReservationRepository();
 
         // 프로그램 실행...
 

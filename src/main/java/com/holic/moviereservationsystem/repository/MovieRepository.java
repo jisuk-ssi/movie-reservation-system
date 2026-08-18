@@ -12,7 +12,7 @@ public class MovieRepository {
 
     // 영화 저장
     public Movie save(Movie movie) {
-        movie.setMovieID(sequence++);
+        movie.setMovieId(sequence++);
         movieList.add(movie);
 
         return movie;
