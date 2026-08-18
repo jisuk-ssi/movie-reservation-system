@@ -25,11 +25,9 @@ public class ScreeningRepository {
     }
 
     // 상영 정보 저장
-    public Screening save(Screening screening) {
+    public void save(Screening screening) {
         screening.setScreeningId(sequence++);
         screeningList.add(screening);
-
-        return screening;
     }
 
     // ID로 상영 정보 조회

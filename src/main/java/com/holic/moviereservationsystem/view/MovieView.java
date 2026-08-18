@@ -28,11 +28,6 @@ public class MovieView {
         return readInt("메뉴 선택: ");
     }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
-    }
-
     // 오류 메시지 출력
     public void displayError(String message) {
         System.out.println("[오류] " + message);
@@ -131,10 +126,5 @@ public class MovieView {
 
             displayError("올바른 장르 번호를 선택해주세요.");
         }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

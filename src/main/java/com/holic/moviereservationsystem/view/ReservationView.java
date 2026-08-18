@@ -27,11 +27,6 @@ public class ReservationView {
         return readInt("메뉴 선택: ");
     }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
-    }
-
     // 오류 메시지 출력
     public void displayError(String message) {
         System.out.println("[오류] " + message);
@@ -95,25 +90,5 @@ public class ReservationView {
                 displayError("숫자를 입력해주세요.");
             }
         }
-    }
-
-    // 문자열 입력
-    public String readLine(String prompt) {
-
-        while (true) {
-            System.out.print(prompt);
-            String input = scanner.nextLine().trim();
-
-            if (!input.isEmpty()) {
-                return input;
-            }
-
-            displayError("한 글자 이상 입력해주세요.");
-        }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

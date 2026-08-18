@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MemberRepository {
 
-    private List<Member> memberList = new ArrayList<>();
+    private final List<Member> memberList = new ArrayList<>();
     private int sequence = 1;
 
     public MemberRepository() {
@@ -23,11 +23,9 @@ public class MemberRepository {
     }
 
     // 회원 저장
-    public Member save(Member member) {
+    public void save(Member member) {
         member.setMemberId(sequence++);
         memberList.add(member);
-
-        return member;
     }
 
     // ID로 회원 조회

@@ -29,11 +29,6 @@ public class ScreeningView {
         return readInt("메뉴 선택: ");
     }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
-    }
-
     // 오류 메시지 출력
     public void displayError(String message) {
         System.out.println("[오류] " + message);
@@ -124,10 +119,5 @@ public class ScreeningView {
                 displayError("날짜와 시간을 올바른 형식으로 입력해주세요.");
             }
         }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

@@ -27,11 +27,6 @@ public class MemberView {
         return readInt("메뉴 선택: ");
     }
 
-    // 일반 메시지 출력
-    public void displayMessage(String message) {
-        System.out.println(message);
-    }
-
     // 오류 메시지 출력
     public void displayError(String message) {
         System.out.println("[오류] " + message);
@@ -103,10 +98,5 @@ public class MemberView {
 
             displayError("한 글자 이상 입력해주세요.");
         }
-    }
-
-    // Scanner 종료
-    public void close() {
-        scanner.close();
     }
 }

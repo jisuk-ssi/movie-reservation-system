@@ -32,11 +32,9 @@ public class ReservationRepository {
     }
 
     // 예매 저장
-    public Reservation save(Reservation reservation) {
+    public void save(Reservation reservation) {
         reservation.setReservationId(sequence++);
         reservationList.add(reservation);
-
-        return reservation;
     }
 
     // ID로 예매 조회

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MovieRepository {
 
-    private List<Movie> movieList = new ArrayList<>();
+    private final List<Movie> movieList = new ArrayList<>();
     private int sequence = 1;
 
     public MovieRepository() {
@@ -25,11 +25,9 @@ public class MovieRepository {
     }
 
     // 영화 저장
-    public Movie save(Movie movie) {
+    public void save(Movie movie) {
         movie.setMovieId(sequence++);
         movieList.add(movie);
-
-        return movie;
     }
 
     // ID로 영화 조회
