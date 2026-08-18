@@ -15,6 +15,7 @@ public class ScreeningRepository {
         initializeScreenings(movieRepository);
     }
 
+    // 초기값 입력
     private void initializeScreenings(MovieRepository movieRepository) {
         save(new Screening(movieRepository.findById(1), LocalDateTime.of(2026, 8, 20, 10, 30), "1관", 99));
         save(new Screening(movieRepository.findById(2), LocalDateTime.of(2026, 8, 20, 13, 0), "2관", 80));

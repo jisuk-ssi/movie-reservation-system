@@ -20,6 +20,7 @@ public class MemberController {
         this.memberView = memberView;
     }
 
+    //sub-menu
     public void run() {
 
         while (true) {

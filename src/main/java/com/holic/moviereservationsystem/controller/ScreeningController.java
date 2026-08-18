@@ -27,6 +27,7 @@ public class ScreeningController {
         this.screeningView = screeningView;
     }
 
+    //sub-menu
     public void run() {
 
         while (true) {

@@ -26,6 +26,7 @@ public class ReservationController {
         this.reservationView = reservationView;
     }
 
+    //sub-menu
     public void run() {
 
         while (true) {
