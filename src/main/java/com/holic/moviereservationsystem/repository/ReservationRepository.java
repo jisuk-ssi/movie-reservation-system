@@ -15,6 +15,7 @@ public class ReservationRepository {
         initializeReservations(memberRepository, screeningRepository);
     }
 
+    //초기값 입력
     private void initializeReservations(MemberRepository memberRepository,
                                         ScreeningRepository screeningRepository) {
         saveInitialReservation(memberRepository, screeningRepository, 1, 1);

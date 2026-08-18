@@ -20,6 +20,7 @@ public class MovieController {
         this.movieView = movieView;
     }
 
+    //sub-menu
     public void run() {
 
         while (true) {

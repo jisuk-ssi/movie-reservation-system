@@ -14,6 +14,7 @@ public class MemberRepository {
         initializeMembers();
     }
 
+    //초기값 입력
     private void initializeMembers() {
         save(new Member("김민준", "010-1234-5678"));
         save(new Member("이서연", "010-2345-6789"));

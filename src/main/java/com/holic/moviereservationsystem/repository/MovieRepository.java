@@ -16,6 +16,7 @@ public class MovieRepository {
         initializeMovies();
     }
 
+    //초기값 입력
     private void initializeMovies() {
         save(new Movie("범죄도시", Genre.ACTION, 121));
         save(new Movie("극한직업", Genre.COMEDY, 111));
